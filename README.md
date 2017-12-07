@@ -1,6 +1,8 @@
-#Wordpress study questions
+# Wordpress study questions
 
-Knowing the following is sufficient to passing the Wordpress part of the exam. To learn more [study the entire Wordpress tutorial](https://school-of-engineering.github.io/wordpress-basics/).
+Knowing the following should be sufficient to pass the Wordpress part of the exam. To learn more [study the entire Wordpress tutorial](https://school-of-engineering.github.io/wordpress-basics/). 
+
+> Version 0.1 -This is the first draft. Content will be added.
 
 1. What is Wordpress?
 
@@ -222,4 +224,3 @@ Knowing the following is sufficient to passing the Wordpress part of the exam. T
     > ```
 
 15. ​
-
