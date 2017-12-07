@@ -138,7 +138,7 @@ Knowing the following should be sufficient to pass the Wordpress part of the exa
     >
     > To figure out which template file to use, Wordpress follows a strict hierarchy scheme of predefined template file names. Here's a simplified version of it, based on the above requested URL's
     >
-    > ![Template Hierachy](template-hierarchy.svg)
+    > ![Template Hierachy](template-hierarchy.png)
     >
     > As you can see from this diagram, if the only template available is index.php, all content will be displayed using that template. You can also see that there are different priorities on the different template files. If a template with priority 1 exists that template file will be used before a template with a lower priority.
 
