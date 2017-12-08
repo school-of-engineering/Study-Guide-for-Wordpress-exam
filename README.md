@@ -2,7 +2,7 @@
 
 Knowing the following should be sufficient to pass the Wordpress part of the exam. To learn more [study the entire Wordpress tutorial](https://school-of-engineering.github.io/wordpress-basics/). 
 
-> Version 0.1 -This is the first draft. Content will be added.
+> Version 0.2 -This is the first draft. Content will be added.
 
 1. What is Wordpress?
 
@@ -186,7 +186,7 @@ Knowing the following should be sufficient to pass the Wordpress part of the exa
 
 14. How can you modify the Wordpress query and the loop?
 
-    > You can make your own database query by passing in an array of query vars when instanciating a copy of the Wordpress query object. 
+    > You can make your own database query by passing in an array of query vars when instantiating a copy of the Wordpress query object. 
     >
     > Here is an example selecting all posts that has the post type *car* and sort them by their *title*.
     >
@@ -203,7 +203,7 @@ Knowing the following should be sufficient to pass the Wordpress part of the exa
     >
     > /**
     > * Create an object containing the database results 
-    > * from the query we passed to it. 
+    > * from the query we pass to it. 
     > */
     > $my_query = new WP_Query($query_vars);
     >
@@ -222,5 +222,16 @@ Knowing the following should be sufficient to pass the Wordpress part of the exa
     >   /* No cars found */
     > }
     > ```
+    > [Here's a good explanation of some of the most common query vars](https://gist.github.com/ancillaryfactory/2033357) 
 
-15. ​
+15. Why do you divide the templates into different parts?
+
+    > By default, Wordpress will recognise header.php, footer.php and sidebar.php as template parts. They even have their own include methods: `get_header()`, `get_footer()` and `get_sidebar()`.
+    >
+    > The reason for dividing your template files into different part is to avoid redundant code. 
+    >
+    > If you have 4 different templates (page, single, archive and 404.php) then you will probably have the same header and footer in all of those templates. 
+    >
+    > By including header.php and footer.php inside your 4 template files you save a bunch of code lines and more importantly, if you wish to change something in the header or footer, you only need to do it in one place. 
+    >
+    > ​
