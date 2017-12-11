@@ -30,9 +30,9 @@ Knowing the following should be sufficient to pass the Wordpress part of the exa
    >
    > Manage user accounts
 
-4. What is a wordpress post?
+4. What is a Wordpress post?
 
-   > Simply put, it's a row in the database table wp_posts. Posts are the most central part of the Content Management System. Posts hold (prett much) all the content. There are five built in post types each of which have different uses.
+   > Simply put, it's a row in the database table wp_posts. Posts are the most central part of the Content Management System. Posts hold (pretty much) all the content. There are five built in post types each of which have different uses.
 
 5. What are post types?
 
@@ -56,7 +56,7 @@ Knowing the following should be sufficient to pass the Wordpress part of the exa
    >
    > Or if you run a food blog, you might want to add ***Recipes*** in addition to posts and pages.
 
-7. In what way can you customize a post type?
+7. In what way can you customise a post type?
 
    > When you register a new Custom Post Type, there are a few things you can configure:
    >
@@ -93,8 +93,10 @@ Knowing the following should be sufficient to pass the Wordpress part of the exa
   > A theme consists of the following parts: 
   >
   > - A stylesheet (style.css) that define the design and layout of the templates. At the top of the stylesheet file there is a comment area where you set the Theme name.
-  > - A configurations file (functions.php) where you edit the functionality in Wordpress. Here you register new post types and taxonomies, add widget areas, create menu locations and define which features Wordpress should utilize.
+  > - A configurations file (functions.php) where you edit the functionality in Wordpress. Here you register new post types and taxonomies, add widget areas, create menu locations and define which features Wordpress should utilise.
   > - Templates files contains the HTML structure of your site combined with functions to output content from the database. Based on the requested URL, Wordpress figures out what type of content is requested and choses the corresponding template file if it exists. 
+  >
+  >   *Note that functions.php isn't required to create a theme, only style.css and index.php.*
 
 11. How does Wordpress know which template to use?
 
@@ -144,7 +146,7 @@ Knowing the following should be sufficient to pass the Wordpress part of the exa
 
 12. What is the loop and how does it work?
 
-    > Iterating through the array of post objects is commonly refered to as *The Loop*. The two main methods used for creating the post loop are **have_posts()** and **the_post()**. 
+    > Iterating through the array of post objects is commonly referred to as *The Loop*. The two main methods used for creating the post loop are **have_posts()** and **the_post()**. 
     >
     > **have_posts()**
     > Will return *true* as long as the current query object has posts in it. 
@@ -226,12 +228,16 @@ Knowing the following should be sufficient to pass the Wordpress part of the exa
 
 15. Why do you divide the templates into different parts?
 
-    > By default, Wordpress will recognise header.php, footer.php and sidebar.php as template parts. They even have their own include methods: `get_header()`, `get_footer()` and `get_sidebar()`.
-    >
     > The reason for dividing your template files into different part is to avoid redundant code. 
     >
     > If you have 4 different templates (page, single, archive and 404.php) then you will probably have the same header and footer in all of those templates. 
     >
+16. How do you include files using Wordpress methods?
+    >
+    > By default, Wordpress will recognise header.php, footer.php and sidebar.php as template parts. They even have their own include methods: `get_header()`, `get_footer()` and `get_sidebar()`.
+    >
     > By including header.php and footer.php inside your 4 template files you save a bunch of code lines and more importantly, if you wish to change something in the header or footer, you only need to do it in one place. 
     >
-    > ​
+    > Of course you're not limited to dividing your template files into only these files. You can include more files using either the PHP default methods like include() or require() but there is also a Wordpress method available called get_template_part() in which you don't specify the file extension:
+    >
+    > `get_template_part('postgrid')` would include postgrid.php. You can also add a second parameter,  a variant suffix: ` get_template_part('postgrid', 'custom')` which would include postgrid-custom.php if it exists, else it would include postgrid.php as a fallback. 
