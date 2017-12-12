@@ -2,7 +2,7 @@
 
 Knowing the following should be sufficient to pass the Wordpress part of the exam. To learn more [study the entire Wordpress tutorial](https://school-of-engineering.github.io/wordpress-basics/). 
 
-> Version 0.2 -This is the first draft. Content will be added.
+> Version 1, finished.
 
 1. What is Wordpress?
 
@@ -232,6 +232,7 @@ Knowing the following should be sufficient to pass the Wordpress part of the exa
     >
     > If you have 4 different templates (page, single, archive and 404.php) then you will probably have the same header and footer in all of those templates. 
     >
+
 16. How do you include files using Wordpress methods?
     >
     > By default, Wordpress will recognise header.php, footer.php and sidebar.php as template parts. They even have their own include methods: `get_header()`, `get_footer()` and `get_sidebar()`.
@@ -241,3 +242,49 @@ Knowing the following should be sufficient to pass the Wordpress part of the exa
     > Of course you're not limited to dividing your template files into only these files. You can include more files using either the PHP default methods like include() or require() but there is also a Wordpress method available called get_template_part() in which you don't specify the file extension:
     >
     > `get_template_part('postgrid')` would include postgrid.php. You can also add a second parameter,  a variant suffix: ` get_template_part('postgrid', 'custom')` which would include postgrid-custom.php if it exists, else it would include postgrid.php as a fallback. 
+
+17. What are hooks?
+
+    > Throughout the timeline of loading a page in Wordpress, more than 20 000 function calles are made. The majority of these functions have so called hooks added to them. These hooks let theme developers add their own function calls at certain points to modify the built in methods.
+    >
+    > If you know the name of a Wordpress method, there is most certainly a hook with that same name as well. 
+    >
+    > You could compare hooks to JavaScript's `element.addEventListener('click', sayHello)` . In that example the function sayHello would run when someone clicks. 
+    >
+    > There are two types of hooks in Wordpress; action hooks and filter hooks
+
+18. What is an action hook?
+
+    > Action hooks lets you que a function to be called at a certain point (there are more than 800 action hooks in Wordpress). The host function of the hook doesn't pass data to your function it will just call it. Use it to echo out code or change global variables.
+    >
+    > You've been using the init hook to add post types and taxonomies.
+    >
+    > For instance, if you want to run a function before footer.php is loaded you can add a function to the hook `get_footer` 
+    >
+    > This example echoes an `<hr>` element when the get_footer() method is called:
+    >
+    > ```php
+    > function add_hr() {
+    >   echo '<hr>';
+    > }
+    >
+    > add_action('get_footer', 'add_hr');
+    > ```
+    >
+
+19. What is a filter hook?
+
+    > Filter hooks looks very similar to action hooks, but unlike action hooks they will pass data to your function as an argument. There are more than 1700 filter hooks in Wordpress that lets you modify the data before it is echoed out. A
+    >
+    > Although you can, your function shouldn't echo anything, just return the value it received in a modified way.
+    >
+    > This example hooks a function to the filter hook `the_title` and makes all titles uppercase:
+    >
+    > ```php
+    > function make_uppercase($input) {
+    >   $output = strtoupper($input);
+    >   return $output;
+    > }
+    >
+    > add_filter('the_title', 'make_uppercase');
+    > ```
