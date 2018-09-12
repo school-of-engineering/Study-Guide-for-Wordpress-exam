@@ -22,7 +22,7 @@ Knowing the following should be sufficient to pass the Wordpress part of the exa
    >
    > Upload images and other Media,
    >
-   > Change Theme and install plugins
+   > Change Theme and install plugins.
    >
    > Create and manage menus
    >
